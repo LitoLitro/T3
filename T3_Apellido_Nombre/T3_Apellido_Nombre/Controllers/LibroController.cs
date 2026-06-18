@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using T3_Apellido_Nombre.Datos;
 using T3_Apellido_Nombre.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace T3_Apellido_Nombre.Controllers
 {
+    
     public class LibroController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -17,6 +19,7 @@ namespace T3_Apellido_Nombre.Controllers
             IEnumerable<Libro> lista = _db.Libro;
             return View(lista);
         }
+        [Authorize]
         public IActionResult Crear()
         {
             return View();
@@ -35,7 +38,7 @@ namespace T3_Apellido_Nombre.Controllers
             }
             return View(libro);
         }
-
+        [Authorize]
         //Get Editar
 
         public IActionResult Editar(int? Id)
@@ -67,7 +70,7 @@ namespace T3_Apellido_Nombre.Controllers
             return View(libro);
 
         }
-
+        [Authorize]
         //Get Eliminar
 
         public IActionResult Eliminar(int? Id)

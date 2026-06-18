@@ -22,7 +22,7 @@ namespace T3_Apellido_Nombre.Models
         public string Categoria { get; set; }
         [Required(ErrorMessage = "El material es necesario")]
         public string Material { get; set; }
-        [Range(10, 1000, ErrorMessage = "El rango de copias es de 1 a 20")]
+        [Range(1, 20, ErrorMessage = "El rango de copias es de 1 a 20")]
         public int Copias { get; set; }
 
     }

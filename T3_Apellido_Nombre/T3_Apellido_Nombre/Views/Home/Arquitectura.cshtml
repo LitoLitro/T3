@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura de Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #7f8c8d;
+            --primary-color: #2980b9;
+            --accent-color: #16a085;
+            --border-radius: 12px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem; 
+        }
+
+        .book-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; 
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-media {
+            display: flex;
+            flex-direction: column;
+            background-color: #111;
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Ratio de aspecto 16:9 */
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Bloque Derecho/Inferior: Información */
+        .book-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .book-info h2 {
+            font-size: 1.6rem;
+            color: #1e3c72;
+            margin-bottom: 0.3rem;
+        }
+
+        .book-info .author {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .book-info .description {
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Etiquetas (Tags) */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #ebf5fb;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><i class="fas fa-cubes"></i> Arquitectura de Software</h1>
+        <p>Libros esenciales para diseñar sistemas escalables y robustos</p>
+    </header>
+
+    <main class="container">
+        
+        <article class="book-card">
+            <div class="book-media">
+                <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=400&q=80" alt="Designing Data-Intensive Applications" class="book-cover">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/H0i_bXKwujY" title="Review Libro 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="book-info">
+                <h2>Designing Data-Intensive Applications</h2>
+                <span class="author">Por Martin Kleppmann</span>
+                <p class="description">
+                    Considerado la "biblia" de los sistemas de datos modernos. Este libro te guía a través de los principios, pros y contras de diversas tecnologías para procesar y almacenar datos. Aprenderás sobre almacenamiento, indexación, replicación, particionado y transacciones de una manera profundamente analítica.
+                </p>
+                <div class="tags">
+                    <span class="tag">Big Data</span>
+                    <span class="tag">Escalabilidad</span>
+                    <span class="tag">NoSQL</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="book-card">
+            <div class="book-media">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" alt="Clean Architecture" class="book-cover">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/2dKZ-dWaCiU" title="Review Libro 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="book-info">
+                <h2>Clean Architecture</h2>
+                <span class="author">Por Robert C. Martin (Uncle Bob)</span>
+                <p class="description">
+                    Un clásico que aplica los principios SOLID a la arquitectura de software. El "Tío Bob" explica cómo crear estructuras que separen las reglas de negocio de los detalles de implementación (como bases de datos o frameworks), logrando sistemas fáciles de mantener, testear y evolucionar.
+                </p>
+                <div class="tags">
+                    <span class="tag">SOLID</span>
+                    <span class="tag">Diseño</span>
+                    <span class="tag">Buenas Prácticas</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="book-card">
+            <div class="book-media">
+                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=400&q=80" alt="Fundamentals of Software Architecture" class="book-cover">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/4E3B-X67No4" title="Review Libro 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="book-info">
+                <h2>Fundamentals of Software Architecture</h2>
+                <span class="author">Por Mark Richards & Neal Ford</span>
+                <p class="description">
+                    Una excelente guía moderna que examina los diferentes patrones de arquitectura (microservicios, modular monolítico, event-driven, etc.) junto con las habilidades interpersonales ("soft skills") necesarias para liderar equipos y tomar decisiones arquitectónicas eficaces.
+                </p>
+                <div class="tags">
+                    <span class="tag">Patrones</span>
+                    <span class="tag">Microservicios</span>
+                    <span class="tag">Liderazgo</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Catálogo de Arquitectura de Software. Creado con fines educativos.</p>
+    </footer>
+
+</body>
+</html>
